@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.field {
+    height: 650px;
+    width: 400px;
+    border: 2px dotted rgb(110, 176, 241);
+    border-radius: 9%;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(93, 155, 212);
+    padding: 10px;
+}
+.display {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: rgb(243, 224, 138);
+    border: 4px solid black;
+    box-shadow: 1px black;
+    width: 320px;
+    height: 100px;
+    margin-top: 30px;
+    padding: 4px;
+}
+#screenMinor {
+    font-size: 30px;
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 6px;
+}
+#screenMajor {
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-bottom: 0;
+}
+.buttonField {
+    flex: 0 0 auto;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(55, 112, 165);
+    border-radius: 8%;
+}
+.buttonCase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fieldRow {
+    width: 80px;
+    height: auto;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+.button {
+    height: 60px;
+    width: 60px;
+    background-color: rgb(16, 66, 112);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    transition: all 0.07s;
+    padding: auto;
+    margin: 5px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    opacity: 1;
+}
+.operator {
+    background-color: rgb(6, 23, 39);
+}
+.clear {
+    background-color: rgb(235, 111, 111);
+}
+#clearAll {
+    flex: 0 0 auto;
+    height: auto;
+    width: 70px;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+}
