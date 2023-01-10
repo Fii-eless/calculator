@@ -18,9 +18,15 @@ function returnKey(e) {
     if (!key && !special) return;
     if (!key) input += e.key;
     if (key) input += e.key;
-    // console.log(typeof e.key);
-    // console.log(typeof e.key);
-    console.log(input);
+}
+buttons.forEach(button => button.addEventListener("click", logXter));
+function logXter(e) {
+  if (!this.textContent) return;
+  if (this.textContent == "Xy")  this.textContent = "^";
+  if (this.textContent == "X!") this.textContent = "!";
+  if (this.textContent == "+/-") this.textContent = "-";
+  input += this.textContent;
+  console.log(input)
 }
 
 const add = function(a, b) {
