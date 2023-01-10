@@ -106,3 +106,8 @@ body {
     align-items: center;
     margin-bottom: 4px;
 }
+.highlight {
+    transform: scale(1.05);
+    border-color: rgb(243, 224, 138);
+    box-shadow: 0 0 1rem rgb(190, 163, 38);
+}
