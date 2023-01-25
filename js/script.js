@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll(".button");
 const screenMinor = document.querySelector("#screenMinor");
-let displayMajor = [];
+let screenMajor = document.querySelector("#screenMajor");
 let input = [];
 let inputClone = [];
 const operators = ["!", "^", "+", "-", "/", "*"];
@@ -23,15 +23,20 @@ function returnKey(e) {
     const key = document.querySelector(`.button[data-key="${e.keyCode}"]`);
     const special = document.querySelector(`.button[data-code="${e.keyCode}"]`);
     if (!key && !special) return;
+    if (!key) {input.push(e.key); inputClone.push(e.key);}
+    if (key) {input.push(e.key); inputClone.push(e.key);}
     if (e.key === "Backspace") {
       input.splice(input.indexOf("Backspace"), 2);
       inputClone.splice(inputClone.indexOf("Backspace"), 2);
     }
-    if (!key) {input.push(e.key); inputClone.push(e.key);}
-    if (key) {input.push(e.key); inputClone.push(e.key);}
+    if (e.key === "Escape") {
+      input.splice(input.indexOf("Escape"), 2);
+      inputClone.splice(inputClone.indexOf("Escape"), 2);
+    }
     if (input.includes("Enter")) {input[input.indexOf("Enter")] = "="; inputClone[inputClone.indexOf("Enter")] = "=";}
     formatInput(input);
     getResult();
+    displayInput();
     if (e.key === "Escape") {clear(input); clear(inputClone); clear(operationArgs); clear(operationRslt)}
     if (e.key === "Backspace") {
       backSpace(input); backSpace(inputClone);
@@ -51,7 +56,10 @@ function logXter(e) {
   if (input.includes("Xy")) input[input.indexOf("Xy")] = "^";
   if (input.includes("X!")) input[input.indexOf("X!")] = "!";
   if (input.includes("+/-")) input[input.indexOf("+/-")] = "-";
-  if (this.id === "clearAll") clear(input);
+  formatInput(input);
+  getResult();
+  displayInput();
+  if (this.id === "clearAll") {clear(input); clear(inputClone); clear(operationArgs); clear(operationRslt)}
   if (this.id === "backspace") {
     backSpace2(input); backSpace2(inputClone);
     if (!input[0]) operationArgs.pop();
@@ -191,7 +199,18 @@ function getResult() {
   }
 }
 function displayInput() {
-
+  let rsltString = operationRslt.toString();
+  if (rsltString.length >= 9) {
+    operationRslt[0] = operationRslt[0].toExponential(3);
+  }
+  screenMinor.textContent = operationArgs.join(" ");
+  
+  if (operationRslt.length > input.length) {
+    screenMajor.textContent = operationRslt[0];
+  } else {
+    screenMajor.textContent = input.join("");
+  }
+  
 }
 
 function add(a, b) {
